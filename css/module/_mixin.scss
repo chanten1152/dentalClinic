@@ -1,0 +1,27 @@
+$sizes: xl, lg, md, sm, xs;
+
+$breakpoint-up: ( 
+  'xs': 'screen and (min-width: 321px)',
+  'sm': 'screen and (min-width: 376px)',
+  'md': 'screen and (min-width: 601px)',
+  'director': 'screen and (min-width: 701px)',
+  'director-lg': 'screen and (min-width: 871px)',
+  'lg': 'screen and (min-width: 961px)',
+  'header': 'screen and (min-width: 1087px)',
+  'xl': 'screen and (min-width: 1201px)',
+) !default;
+
+//mixinを定義（初期値はsm）
+@mixin mq-up($breakpoint: sm) {
+  @media #{map-get($breakpoint-up, $breakpoint)} {
+    @content;
+  }
+}
+
+// 呼び出し方法
+// .class {
+//   font-size: 12px;
+//   @include mq-up('md') {
+//     font-size: 18px;
+//   }
+// }
